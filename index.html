@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compare estimated flight fares, timings and stops in one place.">
+<title>HAGUFTA BANO — Compare Flights Easily</title>
+<link rel="stylesheet" href="assets/style.css?v=16">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="index.html"><span>✈</span> HAGUFTA BANO</a>
+    <nav><a href="index.html" class="active">Flights</a><a href="destinations.html">Destinations</a><a href="airlines.html">Airlines</a><a href="deals.html">Deals</a><a href="blog.html">Blog</a><a href="about.html">About</a></nav>
+    <a class="nav-btn" href="#search">Search Flights</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">SMARTER FLIGHT SEARCH</span>
+      <h1>Compare flights.<br><em>Travel smarter.</em></h1>
+      <p>Compare estimated fares, flight times and stops in one simple search. When you're ready, continue to a booking partner to complete your reservation.</p>
+    </div>
+    <div class="search-card" id="search">
+      <div class="trip-tabs">
+        <button class="trip active" data-trip="round">Round trip</button>
+        <button class="trip" data-trip="one">One way</button>
+      </div>
+      <form id="searchForm">
+        <div class="fields">
+          <label>From<div class="autocomplete"><input id="from" placeholder="City, airport or IATA code" autocomplete="off" required><div class="suggestions" id="fromSuggestions"></div></div></label>
+          <button type="button" class="swap" id="swap" aria-label="Swap airports">⇄</button>
+          <label>To<div class="autocomplete"><input id="to" placeholder="City, airport or IATA code" autocomplete="off" required><div class="suggestions" id="toSuggestions"></div></div></label>
+        </div>
+        <div class="fields three">
+          <label>Departure<input id="depart" type="date" required></label>
+          <label id="returnWrap">Return<input id="return" type="date"></label>
+          <label>Passengers<select id="passengers"><option>1 Adult</option><option>2 Adults</option><option>3 Adults</option><option>4 Adults</option></select></label>
+        </div>
+        <button class="primary full" type="submit">Search Flights <span>→</span></button>
+        <small></small>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<section class="price-compare-section">
+  <div class="container">
+    <div class="provider-title">Compare prices from hundreds of websites</div>
+    <div class="provider-strip" aria-label="Travel providers">
+      <span>↗ Expedia</span>
+      <span>✦ Skyscanner</span>
+      <span>▣ BudgetAir.com</span>
+      <span>KAYAK</span>
+      <span>KIWI.COM</span>
+      <span>mytrip</span>
+      <span>priceline</span>
+    </div>
+
+    <div class="compare-intro">
+      <div class="compare-copy">
+        <span class="eyebrow">FLIGHT PRICE COMPARISON</span>
+        <h2>We compare the best flight prices available online from leading travel companies</h2>
+        <p>HAGUFTA BANO helps you explore flight options in one place by comparing estimated fares, schedules, stops and airlines. Search your route and review the available options before continuing to a booking provider.</p>
+        <a class="compare-cta" href="#search">Search tickets now <span>→</span></a>
+      </div>
+      <div class="flight-visual" aria-hidden="true">
+        <div class="flight-orbit"></div>
+        <div class="flight-card-price p1"><b>✈</b><strong>$185</strong></div>
+        <div class="flight-card-price p2"><b>✈</b><strong>$162</strong></div>
+        <div class="flight-card-price p3"><b>✈</b><strong>$84</strong></div>
+        <div class="flight-card-price p4"><b>✈</b><strong>$89</strong></div>
+        <div class="flight-card-price p5"><b>✈</b><strong>$56</strong></div>
+        <div class="plane-scene">
+          <div class="moon"></div>
+          <div class="plane">✈</div>
+          <div class="hand"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-factors-section">
+  <div class="container pricing-factors">
+    <div class="factors-intro">
+      <span class="eyebrow">FLIGHT PRICING GUIDE</span>
+      <h2>How flight prices are determined</h2>
+      <p>Ever notice how flight prices seem to fluctuate? Airfare can change based on demand, timing, route, airline, season and other factors. Understanding these factors can help you plan smarter and compare options more effectively.</p>
+    </div>
+
+    <article class="factor-card"><h3>#1&nbsp; Timing Is Key</h3><p>Booking too early or too late can affect the fare you see. Prices can move as seats sell, so checking different travel dates and comparing available options can help you find a suitable fare.</p></article>
+    <article class="factor-card"><h3>#2&nbsp; High and Low Seasons</h3><p>Travel demand often rises during holidays, summer periods and major events. Off-peak travel can sometimes provide more affordable options, depending on the destination and availability.</p></article>
+    <article class="factor-card"><h3>#3&nbsp; Time of Day Matters</h3><p>Flight prices can vary by departure time. Early-morning, late-evening and overnight options may have different pricing from popular midday departures.</p></article>
+    <article class="factor-card"><h3>#4&nbsp; Best Days to Travel</h3><p>Midweek travel can sometimes offer different fares from busy Friday and weekend departures. Compare several nearby dates instead of checking only one day.</p></article>
+    <article class="factor-card"><h3>#5&nbsp; Destination Popularity</h3><p>Popular routes have strong demand, while less-served destinations may have fewer choices. Competition between airlines can also influence the fares available on a route.</p></article>
+    <article class="factor-card"><h3>#6&nbsp; Airline Choice</h3><p>Low-cost and full-service airlines can have different fare structures. Compare the total trip value, including baggage and other optional fees, before choosing an option.</p></article>
+    <article class="factor-card"><h3>#7&nbsp; Fuel Prices and Taxes</h3><p>Fuel costs, airport charges, government taxes and other surcharges can influence airline pricing. The final amount can therefore vary between routes and providers.</p></article>
+    <article class="factor-card"><h3>#8&nbsp; Direct vs. Connecting Flights</h3><p>Connecting flights may sometimes be less expensive than nonstop options. Compare total travel time, number of stops and the final fare before booking.</p></article>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="section-head"><div><span class="eyebrow">WHY USE US</span><h2>Everything you need to choose a flight</h2></div></div>
+  <div class="feature-grid">
+    <article><div class="icon">⌕</div><h3>Compare options</h3><p>See airlines, timings, stops and estimated fares together instead of checking multiple pages.</p></article>
+    <article><div class="icon">↯</div><h3>Find the right trip</h3><p>Sort by price, duration and departure time to quickly narrow down your choices.</p></article>
+    <article><div class="icon">↗</div><h3>Book with a partner</h3><p>Continue to an external airline or travel partner when you are ready to book.</p></article>
+  </div>
+</section>
+
+<section class="light-section">
+<div class="container section">
+  <div class="section-head"><div><span class="eyebrow">POPULAR ROUTES</span><h2>Start with a popular destination</h2></div><a class="text-link" href="destinations.html">View destinations →</a></div>
+  <div class="route-grid">
+    <button class="route" data-from="Delhi (DEL)" data-to="Dubai (DXB)"><strong>DEL</strong><span>→</span><strong>DXB</strong><small>Delhi to Dubai</small></button>
+    <button class="route" data-from="Mumbai (BOM)" data-to="Singapore (SIN)"><strong>BOM</strong><span>→</span><strong>SIN</strong><small>Mumbai to Singapore</small></button>
+    <button class="route" data-from="Delhi (DEL)" data-to="London (LHR)"><strong>DEL</strong><span>→</span><strong>LHR</strong><small>Delhi to London</small></button>
+    <button class="route" data-from="Mumbai (BOM)" data-to="New York (JFK)"><strong>BOM</strong><span>→</span><strong>JFK</strong><small>Mumbai to New York</small></button>
+  </div>
+</div>
+</section>
+
+
+<section class="container section home-extra">
+  <div class="section-head">
+    <div><span class="eyebrow">POPULAR AIRLINES</span><h2>Compare flights from popular airlines</h2>
+    <p>Explore major U.S. and international airlines available in our flight comparison experience.</p></div>
+    <a class="text-link" href="airlines.html">View all airlines →</a>
+  </div>
+  <div class="home-airline-grid">
+    <a href="airlines.html"><b>AA</b><span>American Airlines</span></a>
+    <a href="airlines.html"><b>DL</b><span>Delta Air Lines</span></a>
+    <a href="airlines.html"><b>UA</b><span>United Airlines</span></a>
+    <a href="airlines.html"><b>WN</b><span>Southwest Airlines</span></a>
+    <a href="airlines.html"><b>B6</b><span>JetBlue</span></a>
+    <a href="airlines.html"><b>AS</b><span>Alaska Airlines</span></a>
+    <a href="airlines.html"><b>EK</b><span>Emirates</span></a>
+    <a href="airlines.html"><b>QR</b><span>Qatar Airways</span></a>
+    <a href="airlines.html"><b>LH</b><span>Lufthansa</span></a>
+    <a href="airlines.html"><b>BA</b><span>British Airways</span></a>
+  </div>
+</section>
+
+<section class="light-section">
+  <div class="container section home-extra">
+    <div class="section-head">
+      <div><span class="eyebrow">TRAVEL PLANNING</span><h2>Everything you need before booking</h2></div>
+    </div>
+    <div class="planning-grid">
+      <article><div class="icon">01</div><h3>Search by airport</h3><p>Type the first letters of a city or airport and choose a matching suggestion from the autocomplete list.</p></article>
+      <article><div class="icon">02</div><h3>Compare options</h3><p>Review airline, departure time, arrival time, duration, stops and estimated fare together.</p></article>
+      <article><div class="icon">03</div><h3>Choose your route</h3><p>Use the available filters and sorting options on the results page to narrow your choices.</p></article>
+      <article><div class="icon">04</div><h3>Continue to booking</h3><p>When you select a flight, continue to the relevant booking provider to complete your reservation.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="container section home-extra">
+  <div class="section-head">
+    <div><span class="eyebrow">POPULAR DESTINATIONS</span><h2>Where travelers are searching</h2>
+    <p>Explore popular U.S. and international airports already included in the search database.</p></div>
+    <a class="text-link" href="destinations.html">Explore destinations →</a>
+  </div>
+  <div class="home-destination-grid">
+    <a href="index.html#search"><strong>New York</strong><span>JFK · LGA · EWR</span></a>
+    <a href="index.html#search"><strong>Los Angeles</strong><span>LAX</span></a>
+    <a href="index.html#search"><strong>Chicago</strong><span>ORD · MDW</span></a>
+    <a href="index.html#search"><strong>Miami</strong><span>MIA</span></a>
+    <a href="index.html#search"><strong>Orlando</strong><span>MCO</span></a>
+    <a href="index.html#search"><strong>Las Vegas</strong><span>LAS</span></a>
+    <a href="index.html#search"><strong>London</strong><span>LHR · LGW</span></a>
+    <a href="index.html#search"><strong>Dubai</strong><span>DXB</span></a>
+  </div>
+</section>
+
+<section class="container section home-extra">
+  <div class="section-head">
+    <div><span class="eyebrow">TRAVEL GUIDES</span><h2>Helpful flight guides</h2>
+    <p>Read our detailed guides about cancellations, changes, bookings, discounts and flight planning.</p></div>
+    <a class="text-link" href="blog.html">View all guides →</a>
+  </div>
+  <div class="home-guide-grid">
+    <a href="how-to-cancel-delta-flight.html"><span>FLIGHT GUIDE</span><h3>How to Cancel a Delta Flight</h3><b>Read Guide →</b></a>
+    <a href="how-to-modify-delta-flight.html"><span>FLIGHT GUIDE</span><h3>How to Modify a Delta Flight</h3><b>Read Guide →</b></a>
+    <a href="how-to-change-dates-delta-flight.html"><span>FLIGHT GUIDE</span><h3>How to Change Dates on a Delta Flight</h3><b>Read Guide →</b></a>
+    <a href="new-booking-delta-flight.html"><span>FLIGHT GUIDE</span><h3>How to Make a New Delta Flight Booking</h3><b>Read Guide →</b></a>
+    <a href="discount-on-delta-flights.html"><span>FLIGHT GUIDE</span><h3>How to Find Discounts on Delta Flights</h3><b>Read Guide →</b></a>
+    <a href="what-to-do-delta-flight-cancelled.html"><span>FLIGHT GUIDE</span><h3>What to Do When a Delta Flight Is Cancelled</h3><b>Read Guide →</b></a>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="support-card">
+    <div><span class="eyebrow">FLIGHT ASSISTANCE</span><h2>Need help finding flight options?</h2><p>Call <strong>+1 (888) 908-1043</strong> for flight search assistance.</p></div>
+    <a class="primary" href="tel:+18889081043">Call Now →</a>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="notice"><div><strong>Planning a trip?</strong><p>Our displayed fares are estimated fares, not live airline fares. Always verify the final price, baggage rules and availability with the booking provider before paying.</p></div><a class="secondary" href="about.html">Learn more</a></div>
+</section>
+</main>
+
+
+<footer class="site-footer">
+  <section class="newsletter">
+    <h2>Subscribe to our <span>Newsletter</span></h2>
+    <div class="footer-flight-disclosure">HAGUFTA BANO is an online platform designed to help users get the best flight deals by finding offers from top travel providers and agents. We do not act as a licensed travel agency, nor do we offer our own services or price quotes. Instead, we gather prices from trusted travel sources. While we aim to deliver the best, please note that we cannot guarantee the availability or lowest price of any listed offer at the time of your search, as all rates depend on real-time availability. While we strive to showcase the most competitive prices, we cannot ensure that they will always be the absolute lowest.</div><p>Get latest flight deals, offers and travel tips straight to your inbox</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+      <input type="text" placeholder="Enter Your Name" required>
+      <input type="email" placeholder="Enter Your Email" required>
+      <input type="tel" placeholder="Mobile Number">
+      <button type="submit">✈ Subscribe Now</button>
+    </form>
+    <label class="consent"><input type="checkbox" required> I would like to receive SMS and email from HAGUFTA BANO with the latest offers and promotions. I have read and agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</label>
+  </section>
+
+  <div class="footer-links">
+    <div><h3>⌁ &nbsp; QUICK LINKS</h3><a href="about.html">About Us</a><a href="contact.html">Contact Us</a><a href="help.html">FAQs</a><a href="#">Taxes &amp; Fees</a><a href="#">Baggage Information</a><a href="blog.html">Blog</a><a href="sitemap.xml">Sitemap</a></div>
+    <div><h3>❔ &nbsp; HELPFUL LINKS</h3><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="#">Cancellation Policy</a><a href="#">Security</a><a href="#">Payment Options</a><a href="#">Travel Insurance</a><a href="#">Accessibility</a></div>
+    <div><h3>◇ &nbsp; TRAVEL DEALS</h3><a href="#">Top Airlines Deals</a><a href="#">Last Minute Flights</a><a href="#">One Way Flights</a><a href="#">Round Trip Flights</a><a href="#">Cheap International Flights</a><a href="#">Weekend Getaways</a><a href="#">Student Discount</a></div>
+    <div><h3>⌖ &nbsp; TOP DESTINATIONS</h3><a href="#">✈ Flights to New York</a><a href="#">✈ Flights to Los Angeles</a><a href="#">✈ Flights to Chicago</a><a href="#">✈ Flights to Miami</a><a href="#">✈ Flights to Orlando</a><a href="#">✈ Flights to Las Vegas</a><a href="#">✈ Flights to London</a></div>
+  </div>
+
+  <div class="footer-benefits">
+    <div><b>♢ Best Price Guarantee</b><span>We ensure you get the best deals</span></div>
+    <div><b>♧ 24/7 Customer Support</b><span>We are here to help anytime</span></div>
+    <div><b>♙ Secure Booking</b><span>Your data is 100% safe with us</span></div>
+    <div><b>▤ Easy &amp; Fast Booking</b><span>Book in just a few clicks</span></div>
+  </div>
+
+  <div class="airline-strip">
+    <b>American Airlines</b><b>▲ DELTA</b><b>UNITED ▣</b><b>Southwest</b><b>jetBlue</b><b><i>Alaska</i></b><b>Emirates</b><b>QATAR</b><b>Lufthansa</b><b>BRITISH AIRWAYS</b>
+  </div>
+
+  <div class="trust-strip">
+    <div><strong>We Accept</strong><span class="payment">VISA</span><span class="payment">●●</span><span class="payment">AMEX</span><span class="payment">DISCOVER</span><span class="payment">PayPal</span></div>
+    <div class="badges"><span>PCI DSS</span><span>🔒 digicert</span><span>☁ Cloudflare</span></div>
+    <div class="social"><strong>Follow Us</strong><span>f</span><span>𝕏</span><span>◎</span><span>▶</span></div>
+  </div>
+
+  <div class="footer-disclaimer"><strong>DISCLAIMER:</strong> HAGUFTA BANO operates as an independent travel platform. The content provided on this website is intended only for general informational use. Every reasonable effort has been made to keep the information accurate, relevant, and updated at all times; however, we do not provide any form of assurance or warranty, either implied or expressed, regarding the precision, completeness, or dependability of the information presented on this website. Address: H.No-B-3/78 Street No-5 Kabeer Nagar, Shahdara, North East Delhi, 110094, India<br>For any queries or assistance, you may contact us at <a href="mailto:mesheikhshagufta@gmail.com">mesheikhshagufta@gmail.com</a></div>
+  <div class="footer-bottom"><span>© 2026 <b>HAGUFTA BANO</b>. All Rights Reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="disclaimer.html">Disclaimer</a></span></div>
+</footer>
+
+<script src="assets/data.js?v=8"></script><script src="assets/app.js?v=8"></script>
+</body></html>
