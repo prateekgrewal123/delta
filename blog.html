@@ -1,56 +1,308 @@
-<!DOCTYPE html><html lang="en"><head>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18398557341"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baggage & Travel Fees | Travel Assistance</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#102d63;background:#fff}
+  a{text-decoration:none;color:inherit}
+  .topbar{
+    background:#061b31;color:#fff;height:82px;display:flex;align-items:center;
+    padding:0 7%;gap:36px;position:relative;z-index:5
+  }
+  .brand{display:flex;align-items:center;width:185px;flex:0 0 185px}
+  .brand img{display:block;width:175px;height:auto;max-height:48px}
+  .brand span{font-size:12px;letter-spacing:1px;font-weight:400;margin-left:7px;opacity:.8}
+  .nav{display:flex;align-items:center;gap:31px;font-weight:700;font-size:15px;flex:1}
+  .nav a{padding:31px 0;white-space:nowrap}
+  .nav a.help{border-bottom:4px solid #e31937}
+  .actions{display:flex;align-items:center;gap:18px;white-space:nowrap}
+  .signup{font-weight:700}
+  .login{background:#e31937;padding:11px 18px;border-radius:5px;font-weight:700}
+  .bell{font-size:25px;position:relative}
+  .badge{position:absolute;top:-7px;right:-8px;background:#d7193f;border-radius:50%;font-size:10px;padding:3px 6px}
+  .search{font-size:28px}
+  .subnav{
+    background:#061b31;color:#fff;padding:0 12%;min-height:247px;display:flex;
+    align-items:flex-start;gap:34px;border-top:1px solid rgba(255,255,255,.08);
+    padding-top:40px;padding-bottom:40px
+  }
+  .subnav .main-links{
+    width:40%;display:flex;flex-direction:column;gap:18px
+  }
+  .subnav .main-links a{
+    font-weight:700;display:flex;align-items:center;gap:14px;min-height:28px;
+    line-height:1.25
+  }
+  .subnav .help-icon{font-size:23px;width:30px;text-align:center;flex:0 0 30px}
+  .subnav .divider{
+    width:2px;background:#8994a5;height:210px;opacity:.8;margin:0 45px 0 5px
+  }
+  .subnav .columns{
+    display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:65px;flex:1
+  }
+  .subnav .columns div{display:flex;flex-direction:column;gap:19px}
+  .subnav .columns a{font-weight:400;line-height:1.25;white-space:nowrap}
+  .subnav a:hover{text-decoration:underline}
+  .crumb{
+    height:78px;border-bottom:1px solid #d9dfeb;display:flex;align-items:center;
+    padding:0 12%;font-weight:700;letter-spacing:1px
+  }
+  .crumb .label{width:42%;color:#183b78}
+  .crumb .current{border-left:1px solid #d9dfeb;padding-left:55px}
+  .hero{padding:58px 12% 45px;position:relative;overflow:hidden}
+  .hero:after{
+    content:"✦";position:absolute;right:14%;top:0;font-size:120px;color:#9c1831;
+    transform:rotate(20deg);opacity:.9
+  }
+  h1{font-size:54px;font-weight:400;margin:0 0 30px;letter-spacing:.3px}
+  .redline{width:100px;height:3px;background:#e31937;margin-bottom:36px}
+  .intro{font-size:22px;line-height:1.45;max-width:1150px;margin:0}
+  .cards{background:#f4f6f9;padding:50px 12% 65px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{
+    background:#fff;padding:28px;min-height:190px;border-top:4px solid #123d7a;
+    box-shadow:0 2px 9px rgba(0,0,0,.08)
+  }
+  .card h2{font-size:21px;margin:0 0 14px}
+  .card p{line-height:1.55;color:#44536c}
+  .call-section{
+    margin:45px 12%;padding:30px 35px;background:#061b31;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;gap:25px
+  }
+  .call-section h2{margin:0 0 8px;font-size:25px}
+  .call-section p{margin:0;color:#dbe5f2}
+  .call-btn{
+    background:#e31937;color:#fff;padding:15px 24px;border-radius:5px;
+    font-weight:800;white-space:nowrap
+  }
+  .notice{
+    margin:0 12% 55px;padding:22px 25px;border-left:4px solid #e31937;
+    background:#f7f8fa;color:#33445e;line-height:1.55
+  }
+  footer{background:#061b31;color:#fff;padding:35px 12%;font-size:13px;line-height:1.6}
+  footer strong{color:#fff}
+  .popup-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,.68);display:none;align-items:center;
+    justify-content:center;z-index:100
+  }
+  .popup-bg.show{display:flex}
+  .popup{
+    width:min(500px,92vw);background:#fff;border-radius:10px;overflow:hidden;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);animation:pop .18s ease-out
+  }
+  @keyframes pop{from{transform:scale(.94);opacity:.5}to{transform:scale(1);opacity:1}}
+  .popup-head{background:#061b31;color:#fff;padding:22px 25px;display:flex;justify-content:space-between}
+  .popup-head h3{margin:0;font-size:22px}
+  .close{font-size:28px;cursor:pointer;line-height:20px}
+  .popup-body{padding:28px}
+  .popup-body h2{margin:0 0 12px;color:#102d63}
+  .popup-body p{line-height:1.55;color:#47566d}
+  .offer{background:#fff2f3;border-left:4px solid #e31937;padding:15px;margin:20px 0;font-weight:700}
+  .phone{
+    display:block;text-align:center;background:#e31937;color:#fff;padding:16px;
+    border-radius:5px;font-size:21px;font-weight:800;margin-top:20px
+  }
+  .small{font-size:12px;color:#68778d;text-align:center;margin-top:14px}
+  .floating{
+    position:fixed;right:22px;bottom:22px;background:#102d63;color:#fff;padding:15px 18px;
+    border-radius:7px;box-shadow:0 5px 18px rgba(0,0,0,.25);z-index:20;font-weight:800
+  }
+  @media(max-width:900px){
+    .topbar{height:auto;padding:18px 5%;flex-wrap:wrap;gap:15px}
+    .nav{order:3;width:100%;overflow:auto;gap:22px}
+    .nav a{padding:10px 0}
+    .actions{margin-left:auto}
+    .subnav{display:block;min-height:0;padding:25px 6%}
+    .subnav .main-links{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+    .subnav .main-links a{font-size:14px}
+    .subnav .divider{width:100%;height:1px;margin:25px 0;background:#8994a5}
+    .subnav .columns{grid-template-columns:1fr 1fr;gap:24px 28px}
+    .subnav .columns a{white-space:normal;font-size:14px}
+    .crumb{padding:0 6%;height:60px}.crumb .label{width:45%}.crumb .current{padding-left:25px}
+    .hero{padding:40px 6%}.hero:after{right:-15%;font-size:90px}
+    h1{font-size:40px}.intro{font-size:19px}
+    .cards{padding:35px 6%;grid-template-columns:1fr}
+    .call-section{margin:35px 6%;flex-direction:column;align-items:flex-start}
+    .notice{margin:0 6% 40px}
+    footer{padding:30px 6%}
+  }
+  @media(max-width:560px){
+    .subnav .main-links{grid-template-columns:1fr}
+    .subnav .columns{grid-template-columns:1fr}
+    .subnav .columns div{gap:14px}
+    .brand{width:145px;flex-basis:145px}
+    .brand img{width:140px}
+  }
+</style>
+</head>
+<body>
 
-  gtag('config', 'AW-18398557341');
-</script>
-  
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Flight Travel Guides | HAGUFTA BANO</title><meta name="description" content="Detailed flight guides covering Delta cancellations, changes, dates, bookings, discounts and travel preparation."><link rel="stylesheet" href="assets/style.css?v=16"></head><body>
-<header class="site-header"><div class="container nav"><a class="logo" href="index.html"><span>✈</span> HAGUFTA BANO</a><nav><a href="index.html">Flights</a><a href="destinations.html">Destinations</a><a href="airlines.html">Airlines</a><a href="deals.html">Deals</a><a class="active" href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><a class="nav-btn" href="index.html#search">Search Flights</a></div></header>
-<main><section class="page-hero"><div class="container"><span class="eyebrow">TRAVEL BLOG</span><h1>Flight Travel Guides</h1><p>Detailed, practical guides for booking, changing, comparing and preparing for flights.</p></div></section><section class="container section"><div class="blog-grid"><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="how-to-cancel-delta-flight.html">How to Cancel a Delta Flight</a></h2><p>Cancelling a flight should start with identifying who issued the ticket and reviewing the rules attached to that reservation.</p><a class="read-more" href="how-to-cancel-delta-flight.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="how-to-modify-delta-flight.html">How to Modify a Delta Flight</a></h2><p>A flight modification can involve a date, time or itinerary change. The available options depend on the specific reservation.</p><a class="read-more" href="how-to-modify-delta-flight.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="how-to-change-dates-delta-flight.html">How to Change Dates on a Delta Flight</a></h2><p>Changing dates is often easiest when you compare several nearby dates rather than accepting the first replacement option.</p><a class="read-more" href="how-to-change-dates-delta-flight.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="new-booking-delta-flight.html">How to Make a New Delta Flight Booking</a></h2><p>A new booking is more than selecting the lowest number. Airport convenience, travel time, stops and fare conditions should all be considered.</p><a class="read-more" href="new-booking-delta-flight.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="discount-on-delta-flights.html">How to Find Discounts on Delta Flights</a></h2><p>There is no universal discount that guarantees the lowest fare. A consistent comparison process is a safer way to look for savings.</p><a class="read-more" href="discount-on-delta-flights.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="how-to-check-delta-flight-status.html">How to Check Delta Flight Status</a></h2><p>Flight information can change after a booking, so checking status before leaving for the airport is a useful travel habit.</p><a class="read-more" href="how-to-check-delta-flight-status.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="choose-best-delta-flight.html">How to Choose the Best Delta Flight for Your Trip</a></h2><p>The best itinerary depends on your priorities. A slightly higher fare can sometimes provide a much better schedule or airport.</p><a class="read-more" href="choose-best-delta-flight.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="delta-basic-economy-vs-main-cabin.html">Delta Basic Economy vs Main Cabin</a></h2><p>When comparing fare products, read the conditions attached to your exact itinerary instead of relying on a generic description.</p><a class="read-more" href="delta-basic-economy-vs-main-cabin.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="delta-passenger-name-change-guide.html">How to Handle a Delta Passenger Name Correction</a></h2><p>A passenger name error should be checked before you cancel or purchase another ticket.</p><a class="read-more" href="delta-passenger-name-change-guide.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="delta-baggage-guide.html">How to Review Delta Baggage Options</a></h2><p>Baggage can change the real cost of a trip, so it belongs in any serious flight comparison.</p><a class="read-more" href="delta-baggage-guide.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="cheap-last-minute-delta-flights.html">How to Find Cheap Last-Minute Delta Flights</a></h2><p>Last-minute fares are not automatically cheaper. Flexibility and realistic comparisons are more useful than waiting for a guaranteed price drop.</p><a class="read-more" href="cheap-last-minute-delta-flights.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="compare-delta-flights-by-date-time.html">How to Compare Delta Flights by Date and Time</a></h2><p>Small changes to a travel date or departure time can produce different itinerary and fare combinations.</p><a class="read-more" href="compare-delta-flights-by-date-time.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="what-to-do-delta-flight-cancelled.html">What to Do When a Delta Flight Is Cancelled</a></h2><p>A cancellation can affect connections and other travel arrangements. Start by confirming the disruption and reviewing the replacement choices.</p><a class="read-more" href="what-to-do-delta-flight-cancelled.html">Read Full Guide →</a></article><article class="blog-card"><div class="blog-card-tag">FLIGHT GUIDE</div><h2><a href="delta-flight-travel-checklist.html">How to Prepare for a Delta Flight</a></h2><p>A short pre-flight checklist can prevent avoidable problems with documents, baggage, airport timing and itinerary details.</p><a class="read-more" href="delta-flight-travel-checklist.html">Read Full Guide →</a></article></div></section></main>
-<footer class="site-footer">
-  <section class="newsletter">
-    <h2>Subscribe to our <span>Newsletter</span></h2>
-    <div class="footer-flight-disclosure">HAGUFTA BANO is an online platform designed to help users get the best flight deals by finding offers from top travel providers and agents. We do not act as a licensed travel agency, nor do we offer our own services or price quotes. Instead, we gather prices from trusted travel sources. While we aim to deliver the best, please note that we cannot guarantee the availability or lowest price of any listed offer at the time of your search, as all rates depend on real-time availability. While we strive to showcase the most competitive prices, we cannot ensure that they will always be the absolute lowest.</div><p>Get latest flight deals, offers and travel tips straight to your inbox</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-      <input type="text" placeholder="Enter Your Name" required>
-      <input type="email" placeholder="Enter Your Email" required>
-      <input type="tel" placeholder="Mobile Number">
-      <button type="submit">✈ Subscribe Now</button>
-    </form>
-    <label class="consent"><input type="checkbox" required> I would like to receive SMS and email from HAGUFTA BANO with the latest offers and promotions. I have read and agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</label>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Travel assistance home"><img src="https://www.delta.com/content/dam/delta_homepage_redesign/Logo/Delta-Logo.svg" alt="Delta logo"></a>
+  <nav class="nav">
+    <a href="#" data-help>Book</a>
+    <a href="#" data-help>Check-in</a>
+    <a href="#" data-help>My Trips</a>
+    <a href="#" data-help>Flight Status</a>
+    <a href="#" data-help>Travel Info</a>
+    <a href="#" data-help>Rewards</a>
+    <a href="#" class="help" data-help>Need Help?</a>
+  </nav>
+  <div class="actions">
+    <a class="signup" href="#" data-help>Sign Up</a>
+    <a class="login" href="#" data-help>Log in</a>
+    <span class="bell">♧<i class="badge">3</i></span>
+    <span class="search">⌕</span>
+  </div>
+</header>
+
+<section class="subnav">
+  <div class="main-links">
+    <a href="#" data-help><span class="help-icon">⟳</span><span>Change/Cancel Help</span></a>
+    <a href="#" data-help><span class="help-icon">✉</span><span>Request a Refund or Reimbursement</span></a>
+    <a href="#" data-help><span class="help-icon">♿</span><span>Seats Help</span></a>
+    <a href="#" data-help><span class="help-icon">▣</span><span>Baggage Help</span></a>
+  </div>
+  <div class="divider"></div>
+  <div class="columns">
+    <div>
+      <a href="#" data-help>Help Center</a>
+      <a href="#" data-help>Travel Planning FAQs</a>
+      <a href="#" data-help>Receipts</a>
+      <a href="#" data-help>Certificates &amp; eCredits</a>
+    </div>
+    <div>
+      <a href="#" data-help>Accessible Travel Services</a>
+      <a href="#" data-help>Child &amp; Infant Travel</a>
+      <a href="#" data-help>Pet Travel</a>
+      <a href="#" data-help>Special Circumstances</a>
+    </div>
+    <div>
+      <a href="#" data-help>SkyMiles Help</a>
+      <a href="#" data-help>Mobile</a>
+      <a href="#" data-help>Comment/Complaint</a>
+    </div>
+  </div>
+</section>
+
+<div class="crumb">
+  <div class="label">BAGGAGE INFO <span style="color:#e31937">⌄</span></div>
+  <div class="current">Baggage Overview</div>
+</div>
+
+<main>
+  <section class="hero">
+    <h1>Baggage &amp; Travel Fees</h1>
+    <div class="redline"></div>
+    <p class="intro">
+      When you travel, being prepared includes understanding what you need to know about
+      your baggage, travel services and possible fees. Explore the information below to
+      learn more about baggage options, travel requirements and assistance.
+    </p>
   </section>
 
-  <div class="footer-links">
-    <div><h3>⌁ &nbsp; QUICK LINKS</h3><a href="about.html">About Us</a><a href="contact.html">Contact Us</a><a href="help.html">FAQs</a><a href="#">Taxes &amp; Fees</a><a href="#">Baggage Information</a><a href="blog.html">Blog</a><a href="sitemap.xml">Sitemap</a></div>
-    <div><h3>❔ &nbsp; HELPFUL LINKS</h3><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="#">Cancellation Policy</a><a href="#">Security</a><a href="#">Payment Options</a><a href="#">Travel Insurance</a><a href="#">Accessibility</a></div>
-    <div><h3>◇ &nbsp; TRAVEL DEALS</h3><a href="#">Top Airlines Deals</a><a href="#">Last Minute Flights</a><a href="#">One Way Flights</a><a href="#">Round Trip Flights</a><a href="#">Cheap International Flights</a><a href="#">Weekend Getaways</a><a href="#">Student Discount</a></div>
-    <div><h3>⌖ &nbsp; TOP DESTINATIONS</h3><a href="#">✈ Flights to New York</a><a href="#">✈ Flights to Los Angeles</a><a href="#">✈ Flights to Chicago</a><a href="#">✈ Flights to Miami</a><a href="#">✈ Flights to Orlando</a><a href="#">✈ Flights to Las Vegas</a><a href="#">✈ Flights to London</a></div>
-  </div>
+  <section class="cards">
+    <article class="card">
+      <h2>Baggage Overview</h2>
+      <p>Review general information about checked baggage, carry-on items and preparing your bags before your trip.</p>
+      <a href="#" data-help style="font-weight:800">Get assistance →</a>
+    </article>
+    <article class="card">
+      <h2>Baggage Fees</h2>
+      <p>Travel fees can vary based on your itinerary, ticket type, baggage and other trip details. Contact our support team for assistance.</p>
+      <a href="#" data-help style="font-weight:800">Get assistance →</a>
+    </article>
+    <article class="card">
+      <h2>Travel Services</h2>
+      <p>Need help understanding your trip, baggage or travel options? Our independent travel assistance team can help guide you.</p>
+      <a href="#" data-help style="font-weight:800">Get assistance →</a>
+    </article>
+    <article class="card">
+      <h2>Special Circumstances</h2>
+      <p>Traveling with special items, children, pets or accessibility requirements? Get assistance before your trip.</p>
+      <a href="#" data-help style="font-weight:800">Get assistance →</a>
+    </article>
+    <article class="card">
+      <h2>Receipts &amp; Reimbursements</h2>
+      <p>For questions about receipts, reimbursements or travel-related charges, contact our support team directly.</p>
+      <a href="#" data-help style="font-weight:800">Get assistance →</a>
+    </article>
+    <article class="card">
+      <h2>Need Help?</h2>
+      <p>For immediate assistance with your travel questions, speak directly with an available support executive.</p>
+      <a href="tel:18889081043" style="font-weight:800">Call 888-908-1043 →</a>
+    </article>
+  </section>
 
-  <div class="footer-benefits">
-    <div><b>♢ Best Price Guarantee</b><span>We ensure you get the best deals</span></div>
-    <div><b>♧ 24/7 Customer Support</b><span>We are here to help anytime</span></div>
-    <div><b>♙ Secure Booking</b><span>Your data is 100% safe with us</span></div>
-    <div><b>▤ Easy &amp; Fast Booking</b><span>Book in just a few clicks</span></div>
-  </div>
+  <section class="call-section">
+    <div>
+      <h2>Need immediate travel assistance?</h2>
+      <p>Speak with our independent travel support team for help with your questions.</p>
+    </div>
+    <a class="call-btn" href="tel:18889081043">Call 888-908-1043</a>
+  </section>
 
-  <div class="airline-strip">
-    <b>American Airlines</b><b>▲ DELTA</b><b>UNITED ▣</b><b>Southwest</b><b>jetBlue</b><b><i>Alaska</i></b><b>Emirates</b><b>QATAR</b><b>Lufthansa</b><b>BRITISH AIRWAYS</b>
+  <div class="notice">
+    <strong>Independent service notice:</strong> TravelAssist is an independent travel assistance service
+    and is not affiliated with, sponsored by, or endorsed by Delta Air Lines or any other airline.
+    Airline names and information may be used only for identification/reference purposes.
   </div>
+</main>
 
-  <div class="trust-strip">
-    <div><strong>We Accept</strong><span class="payment">VISA</span><span class="payment">●●</span><span class="payment">AMEX</span><span class="payment">DISCOVER</span><span class="payment">PayPal</span></div>
-    <div class="badges"><span>PCI DSS</span><span>🔒 digicert</span><span>☁ Cloudflare</span></div>
-    <div class="social"><strong>Follow Us</strong><span>f</span><span>𝕏</span><span>◎</span><span>▶</span></div>
-  </div>
-
-  <div class="footer-disclaimer"><strong>DISCLAIMER:</strong> HAGUFTA BANO operates as an independent travel platform. The content provided on this website is intended only for general informational use. Every reasonable effort has been made to keep the information accurate, relevant, and updated at all times; however, we do not provide any form of assurance or warranty, either implied or expressed, regarding the precision, completeness, or dependability of the information presented on this website. Address: H.No-B-3/78 Street No-5 Kabeer Nagar, Shahdara, North East Delhi, 110094, India<br>For any queries or assistance, you may contact us at <a href="mailto:mesheikhshagufta@gmail.com">mesheikhshagufta@gmail.com</a></div>
-  <div class="footer-bottom"><span>© 2026 <b>HAGUFTA BANO</b>. All Rights Reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="disclaimer.html">Disclaimer</a></span></div>
+<footer>
+  <strong>TravelAssist</strong><br>
+  Independent travel assistance and information service.<br>
+  For direct assistance, call <a href="tel:18889081043" style="font-weight:800;text-decoration:underline">888-908-1043</a>.<br><br>
+  © 2026 TravelAssist. All rights reserved.
 </footer>
-</body></html>
+
+<a class="floating" href="tel:18889081043">Call 888-908-1043</a>
+
+<div class="popup-bg" id="helpPopup">
+  <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-head">
+      <h3>Need Help?</h3>
+      <span class="close" id="closePopup">&times;</span>
+    </div>
+    <div class="popup-body">
+      <h2 id="popupTitle">We're here to assist you</h2>
+      <p>
+        If you're having difficulty finding the information you need on this website,
+        you can speak directly with our independent travel support team for assistance.
+      </p>
+      <div class="offer">
+        Call now for priority assistance. A 20% service discount may be available
+        when you speak with an executive.
+      </div>
+      <a class="phone" href="tel:18889081043">Call 888-908-1043</a>
+      <div class="small">Independent travel assistance service. Not affiliated with Delta Air Lines.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById('helpPopup');
+  const close = document.getElementById('closePopup');
+
+  document.querySelectorAll('[data-help]').forEach(el => {
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      popup.classList.add('show');
+    });
+  });
+
+  close.addEventListener('click', () => popup.classList.remove('show'));
+
+  popup.addEventListener('click', e => {
+    if(e.target === popup) popup.classList.remove('show');
+  });
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') popup.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
